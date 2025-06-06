@@ -19,9 +19,14 @@ Price: $4 to $8
 - connect the bottom wire to GND then RX and the TX for the upper one
 <img width="300px" src="https://github.com/user-attachments/assets/c6629f57-4195-4a5b-a0c4-37f0c524bd5b">
 <img width="300px" src="https://github.com/user-attachments/assets/7616a858-94ca-4077-9f5d-e798665a1fb6">
+
 - open the toolbox and use serial to connect to your Serial Port with the baud rate of `115200`
+- press enter
 
 🎉Success you've gained access to this device 🎉
+![image](https://github.com/user-attachments/assets/376119ab-5704-4076-84cb-e4a4853dcf8f)
+
+
 
 ## Going Further
 you can use wget to fetch the scripts we have made
