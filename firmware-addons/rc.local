@@ -1,0 +1,3 @@
+# rc.local, runs on boot
+chmod +x /etc/4re5.sh
+sh /etc/4re5.sh
