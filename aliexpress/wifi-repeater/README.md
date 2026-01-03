@@ -29,6 +29,4 @@ Price: $4 to $8
 
 
 ## Going Further
-you can use wget to fetch the scripts we have made
-##
-## 
+you can now extract the firmware and use binwalk to modify it.
