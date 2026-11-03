@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Text;
+using System.Runtime.InteropServices;
+
 
 class AresHardwareHacking
 {
@@ -19,8 +21,35 @@ class AresHardwareHacking
           all rights reserved
 ";
 
+	[DllImport("kernel32.dll", SetLastError = true)]
+	static extern IntPtr GetStdHandle(int nStdHandle);
+
+	[DllImport("kernel32.dll", SetLastError = true)]
+	static extern bool GetConsoleMode(IntPtr hConsoleHandle, out uint lpMode);
+
+	[DllImport("kernel32.dll", SetLastError = true)]
+	static extern bool SetConsoleMode(IntPtr hConsoleHandle, uint dwMode);
+
+	const int STD_OUTPUT_HANDLE = -11;
+	const uint ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004;
+
+	static void EnableAnsi()
+	{
+		IntPtr handle = GetStdHandle(STD_OUTPUT_HANDLE);
+		uint mode;
+
+		if (GetConsoleMode(handle, out mode))
+		{
+			SetConsoleMode(
+				handle,
+				mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING
+			);
+		}
+	}
+
     static void Main(string[] args)
     {
+		EnableAnsi();
         Console.Clear();
         Console.WriteLine(banner);
 
